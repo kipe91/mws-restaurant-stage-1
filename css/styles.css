@@ -38,6 +38,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
+  width: auto;
 }
 #footer {
   background-color: #444;
@@ -57,6 +58,7 @@ nav {
 }
 nav h1 {
   margin: auto;
+  padding-top: 10px;
 }
 nav h1 a {
   color: #fff;
@@ -106,7 +108,7 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  height: 50px;
+  height: 80px;
   background-color: #3397DB;
   align-items: center;
 }
@@ -115,6 +117,7 @@ nav h1 a {
   font-size: 1rem;
   font-weight: normal;
   line-height: 1;
+  padding-top: 10px;
   margin: 0 20px;
 }
 .filter-options select {
@@ -136,16 +139,24 @@ nav h1 a {
   margin: 0;
   padding: 30px 15px 60px;
   text-align: center;
+  box-shadow: inset 0 5px 10px #888;
 }
 #restaurants-list li {
+  display: inline-block;
   background-color: #fff;
-  border: 2px solid #ccc;
+  border: 2px solid #3489CB;
   font-family: Arial,sans-serif;
   margin: 15px;
   min-height: 380px;
-  padding: 0 30px 25px;
+  padding: 20px;
   text-align: left;
   width: 270px;
+  box-shadow: 5px 5px 10px #888;
+  transition-duration: 0.3s;
+}
+#restaurants-list li:hover {
+  background-color: #F1F1F1;
+  box-shadow: 2px 2px 10px #888;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -154,6 +165,7 @@ nav h1 a {
   max-width: 100%;
   min-height: 248px;
   min-width: 100%;
+  border-radius: 10px;
 }
 #restaurants-list li h1 {
   color: #f18200;
@@ -180,6 +192,12 @@ nav h1 a {
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  transition-duration: 0.5s;
+}
+#restaurants-list li a:hover {
+  background-color: #F1F1F1;
+  border-bottom-color: orange;
+  color: orange;
 }
 
 /* ====================== Restaurant Details ====================== */
@@ -191,7 +209,7 @@ nav h1 a {
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 87%;
+  height: 90%;
   position: fixed;
   right: 0;
   top: 80px;
@@ -205,7 +223,7 @@ nav h1 a {
 .inside #footer {
   bottom: 0;
   position: absolute;
-  width: 50%;
+  width: calc(50% - 50px);
 }
 #restaurant-name {
   color: #f18200;
@@ -240,7 +258,7 @@ nav h1 a {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
   padding: 140px 40px 30px;
-  width: 50%;
+  width: calc(50% - 80px);
 }
 #reviews-container {
   padding: 30px 40px 80px;
@@ -258,18 +276,83 @@ nav h1 a {
 }
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+  border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
   overflow: hidden;
-  padding: 0 20px 20px;
   position: relative;
   width: 85%;
+  border: 1px solid #000;
+  border-radius: 25px 0 25px 0;
 }
 #reviews-list li p {
-  margin: 0 0 10px;
+  margin: 0;
+  padding: 8px;
+}
+#reviews-list li p:nth-of-type(1), #reviews-list li p:nth-of-type(2) {
+  display: inline-block;
+  width: calc(50% - 16px);
+  background: #000;
+  color: #fff;
+}
+#reviews-list li p:nth-of-type(2) {
+  float: right;
+  text-align: right;
+}
+#reviews-list li p:nth-of-type(3) {
+  background-color: #f58500;
+  border-radius: 0 0 15px 0;
+  width: 80px;
+  color: #fff;
 }
 #restaurant-hours td {
   color: #666;
+}
+
+/* ====================== Phone Adjustments ====================== */
+@media screen and (max-width: 600px) {
+  /* ----- Home ----- */
+  .filter-options {
+    height: 150px;
+  }
+  .filter-options select{
+    width: 90%;
+  }
+  #restaurants-list li {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #reviews-list li,
+  #restaurant-container {
+    width: 100%;
+    margin: 0 0 30px;
+  }
+  #reviews-list {
+    width: 100%;
+  }
+  .inside #map-container {
+    width: 100%;
+    margin-top: 50px;
+    position: relative;
+    height: 300px;
+    margin-bottom: 100px;
+  }
+  .inside #footer,
+  /*#restaurant-container,
+  #reviews-container,*/
+  #breadcrumb {
+    width: 100%;
+  }
+  #reviews-container,
+  #restaurant-container {
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+  }
+  #reviews-list li:last-child {
+    margin-bottom: 100px;
+  }
 }
