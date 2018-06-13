@@ -38,7 +38,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
-  width: auto;
+  width: 100%;
 }
 #footer {
   background-color: #444;
@@ -320,6 +320,13 @@ nav h1 a {
 }
 
 /* ====================== Phone Adjustments ====================== */
+@media screen and (max-width: 374px) {
+  /* ----- Home ----- */
+  #restaurants-list li {
+    width: 80%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   /* ----- Home ----- */
   .filter-options {
@@ -349,11 +356,11 @@ nav h1 a {
     height: 300px;
     margin-bottom: 100px;
   }
-  .inside #footer,
-  /*#restaurant-container,
-  #reviews-container,*/
   #breadcrumb {
-    width: 100%;
+    width: calc(100% - 80px);
+  }
+  .inside #footer {
+    width: calc(100% - 50px);
   }
   #reviews-container,
   #restaurant-container {

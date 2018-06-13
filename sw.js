@@ -1,4 +1,4 @@
-const staticCacheName = 'restaurants-with-map-v9';
+const staticCacheName = 'restaurants-with-map-v14';
 // Service Worker
 
 const urlsToFetch = [
